@@ -16,15 +16,15 @@ int main()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     sf::RenderWindow window(
-        sf::VideoMode({800, 600}), "Ellipse",
+        sf::VideoMode({800, 600}), "rose",
         sf::Style::Default, settings);
 
-    sf::ConvexShape ellipse;
+    sf::ConvexShape rose;
     sf::Vector2f position = {400, 300};
-    ellipse.setPosition(position);
-    ellipse.setFillColor(sf::Color(0xFF, 0x09, 0x80));
+    rose.setPosition(position);
+    rose.setFillColor(sf::Color(0xFF, 0x09, 0x80));
 
-    ellipse.setPointCount(pointCount);
+    rose.setPointCount(pointCount);
     for (int pointNo = 0; pointNo < pointCount; ++pointNo)
     {
         float angle = float(2 * M_PI * pointNo) / float(pointCount);
@@ -32,7 +32,7 @@ int main()
         sf::Vector2f point = sf::Vector2f{
             radius * std::sin(angle),
             radius * std::cos(angle)};
-        ellipse.setPoint(pointNo, point);
+        rose.setPoint(pointNo, point);
     }
 
     while (window.isOpen())
@@ -52,10 +52,10 @@ int main()
         sf::Vector2f offset = sf::Vector2f{
             radiusTrack * std::sin(angleTrack),
             radiusTrack * std::cos(angleTrack)};
-        ellipse.setPosition(position + offset);
+        rose.setPosition(position + offset);
 
         window.clear();
-        window.draw(ellipse);
+        window.draw(rose);
         window.display();
     }
 }
