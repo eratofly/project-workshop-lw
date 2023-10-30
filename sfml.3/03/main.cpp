@@ -50,20 +50,20 @@ void update(const sf::Vector2f &mousePosition, sf::ConvexShape &pointer, sf::Clo
     const sf::Vector2f delta = mousePosition - pointer.getPosition();
     float angle = atan2(delta.y, delta.x);
     angle = toDegress(angle);
-    float r = pointer.getRotation();
+    float pointerAngle = pointer.getRotation();
     if (angle < 0)
     {
         angle += 360;
     }
-    if (std::abs(r - angle) > std::abs(r - angle - 360))
+    if (std::abs(pointerAngle - angle) > std::abs(pointerAngle - angle - 360))
     {
         angle += 360;
     }
     const float dt = clock.restart().asSeconds();
 
-    if (r < angle)
+    if (pointerAngle < angle)
         pointer.rotate(speed * dt);
-    else if (r > angle)
+    else if (pointerAngle > angle)
         pointer.rotate(-speed * dt);
 }
 
@@ -95,7 +95,7 @@ int main()
     while (window.isOpen())
     {
         pollEvents(window, mousePosition);
-        update(mousePosition, pointer, clock);
+        update(*ousePosition, pointer, clock);
         redrawFrame(window, pointer);
     }
 }
