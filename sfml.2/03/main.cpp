@@ -23,7 +23,6 @@ int main()
     ellipse.setPointCount(pointCount);
     for (int pointNo = 0; pointNo < pointCount; ++pointNo)
     {
-
         float angle = float(2 * M_PI * pointNo) / float(pointCount);
         sf::Vector2f point = sf::Vector2f{
             ellipseRadius.x * std::sin(angle),
