@@ -34,7 +34,6 @@ void updateArrowElements(Arrow &arrow)
     arrow.stem.setRotation(toDegress(arrow.rotation));
 }
 
-// Инициализирует фигуру-стрелку
 void initArrow(Arrow &arrow)
 {
     arrow.position = {400, 300};
@@ -51,10 +50,8 @@ void initArrow(Arrow &arrow)
     updateArrowElements(arrow);
 }
 
-// Опрашивает и обрабатывает доступные события в цикле.
 float onMouseMove(const sf::Event::MouseMoveEvent &event, sf::Vector2f &mousePosition)
 {
-    std::cout << "mouse x = " << event.x << " , mouse y = " << event.y << std::endl;
 
     mousePosition = {float(event.x), float(event.y)};
 }
@@ -78,7 +75,6 @@ void pollEvents(sf::RenderWindow &window, sf::Vector2f &mousePosition)
     }
 }
 
-// Обновляет фигуру, указывающую на мышь
 void update(const sf::Vector2f &mousePosition, Arrow &arrow)
 {
     const sf::Vector2f delta = mousePosition - arrow.position;
@@ -86,7 +82,6 @@ void update(const sf::Vector2f &mousePosition, Arrow &arrow)
     updateArrowElements(arrow);
 }
 
-// Рисует и выводит один кадр
 void redrawFrame(sf::RenderWindow &window, Arrow &arrow)
 {
     window.clear();
@@ -95,7 +90,6 @@ void redrawFrame(sf::RenderWindow &window, Arrow &arrow)
     window.display();
 }
 
-// Программа рисует в окне стрелку, которая поворачивается вслед за курсором мыши.
 int main()
 {
     constexpr unsigned WINDOW_WIDTH = 800;

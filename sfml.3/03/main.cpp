@@ -20,7 +20,6 @@ float toDegress(float radians)
 
 float onMouseMove(const sf::Event::MouseMoveEvent &event, sf::Vector2f &mousePosition)
 {
-    std::cout << "mouse x = " << event.x << " , mouse y = " << event.y << std::endl;
 
     mousePosition = {float(event.x), float(event.y)};
 }
@@ -95,7 +94,7 @@ int main()
     while (window.isOpen())
     {
         pollEvents(window, mousePosition);
-        update(*ousePosition, pointer, clock);
+        update(mousePosition, pointer, clock);
         redrawFrame(window, pointer);
     }
 }
