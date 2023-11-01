@@ -111,8 +111,8 @@ int main()
 
     sf::Texture textureCat;
     sf::Texture texturePointer;
-    const std::string pathCat = "D:/project-workshop-lw/cat.png"; // у меня получается написать относительный путь, кидает ошибку
-    const std::string pathPointer = "D:/project-workshop-lw/red_pointer.png";
+    const std::string pathCat = "img/cat.png";
+    const std::string pathPointer = "img/red_pointer.png";
 
     sf::Sprite cat = initSprite(textureCat, pathCat);
     cat.setPosition({400, 300});
